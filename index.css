@@ -1,0 +1,15 @@
+#header {
+  /* background: #659999;*/
+  background: -webkit-linear-gradient(
+    to right,
+    #780206,
+    #061161,
+    #b21f1f,
+    #fdbb2d
+  );
+  background: linear-gradient(90deg, #780206, #061161, #b21f1f, #fdbb2d);
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  font-family: monospace;
+}

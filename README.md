@@ -1,2 +1,1 @@
-# Namaste-React
-React handons
+#Namaste React 🚀
