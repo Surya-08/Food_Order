@@ -1,25 +1,17 @@
-{
-  /* <div id="parent">
-  <div id="child1">
-    <h1>I am h1 child1</h1>
-    <h2>I am h2 child1</h2>
-  </div>
-  <div id="child2">
-    <h1>I am h1 child2</h1>
-    <h2>I am h2 child2</h2>
-  </div>
-</div>; */
-}
+import React from "react";
+import ReactDOM from "react-dom/client";
+import Body from "./src/components/Body";
+import Header from "./src/components/Header";
 
-const heading = React.createElement("div", { id: "parent" }, [
-  React.createElement("div", { id: "child1" }, [
-    React.createElement("h1", {}, "I am h1 child1"),
-    React.createElement("h2", {}, "I am h2 child1"),
-  ]),
-  React.createElement("div", { id: "child2" }, [
-    React.createElement("h1", {}, "I am h1 child2"),
-    React.createElement("h2", {}, "I am h2 child2"),
-  ]),
-]);
+const AppLayout = () => {
+  return (
+    <div className="app">
+      <Header />
+      <Body />
+    </div>
+  );
+};
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(heading);
+root.render(<AppLayout />);
+
+export default AppLayout;
