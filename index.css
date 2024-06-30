@@ -167,3 +167,6 @@
   text-decoration: none;
   color: whitesmoke;
 }
+.user-card {
+  border: 1px solid black;
+}
