@@ -46,6 +46,11 @@ const Header = () => {
             >
               {toggleButton}
             </button>
+            <button className="login-logout">
+              <Link to="/grocery" className="header-link">
+                Grocery
+              </Link>
+            </button>
           </li>
         </ul>
       </div>
