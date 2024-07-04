@@ -1,31 +1,36 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 class UserCard extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      count: 0,
+      userInfo: {
+        name: "test",
+        location: "test",
+      },
     };
   }
-  componentDidMount() {
-    console.log("child didmount");
+  async componentDidMount() {
+    // console.log("child didmount");
+    const data = await fetch("https://api.github.com/users/Surya-08");
+    const json = await data.json();
+    this.setState({
+      userInfo: json,
+    });
   }
+  componentDidUpdate() {}
+  componentWillUnmount() {}
   render() {
-    const { name, location } = this.props;
-    const { count } = this.state;
-    const handleClassCount = () => {
-      this.setState({
-        count: this.state.count + 1,
-      });
-    };
+    const { login, url, avatar_url } = this.state.userInfo;
+    // const handleClassCount = () => {
+    //   this.setState({});
+    // };
     return (
       <div>
-        <p>{count}</p>
-        <button onClick={handleClassCount}>Count</button>
-        <h3>{name}</h3>
-        <h3>
-          {location} {count}
-        </h3>
+        <img src={avatar_url} alt="" width={50} height={50} />
+        <h3>{login}</h3>
+        <Link to={url}>{url}</Link>
       </div>
     );
   }

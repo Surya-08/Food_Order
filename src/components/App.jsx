@@ -7,6 +7,7 @@ import Header from "./Header";
 import About from "./About";
 import ErrorElement from "./ErrorElement";
 import RestaurantMenu from "./RestaurantMenu";
+import Cart from "./Cart";
 
 const AppLayout = () => {
   return (
@@ -23,6 +24,8 @@ const appRouter = createBrowserRouter([
     children: [
       { path: "/", element: <Body /> },
       { path: "/about", element: <About /> },
+      { path: "/cart", element: <Cart /> },
+
       { path: "/restaurant/:resId", element: <RestaurantMenu /> },
     ],
     errorElement: <ErrorElement />,

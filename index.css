@@ -24,16 +24,19 @@
     rgb(237, 101, 101)
   );
 }
-/* .body {
+.body {
   background: linear-gradient(
-    160deg,
-    rgb(58, 37, 37),
+    90deg,
+    rgb(211, 207, 207),
+    rgb(102, 42, 42),
+    rgb(53, 15, 15)
+      /* rgb(58, 37, 37),
     rgba(45, 19, 24, 0.544) 6%,
     rgb(175, 166, 164),
     rgb(120, 108, 106),
-    rgb(148, 129, 129)
+    rgb(148, 129, 129) */
   );
-} */
+}
 .logo {
   padding: 2px 2px 0px 4px;
   width: 90px;
