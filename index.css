@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 #header {
   /* background: #659999;*/
   background: -webkit-linear-gradient(
@@ -25,19 +29,19 @@
   );
 }
 .body {
+  display: block;
+  justify-content: center !important;
+  align-content: center;
   background: linear-gradient(
-    90deg,
-    rgb(211, 207, 207),
-    rgb(102, 42, 42),
-    rgb(53, 15, 15)
-      /* rgb(58, 37, 37),
-    rgba(45, 19, 24, 0.544) 6%,
-    rgb(175, 166, 164),
-    rgb(120, 108, 106),
-    rgb(148, 129, 129) */
+    to top,
+    rgb(4, 13, 18),
+    rgb(24, 61, 61),
+    rgb(92, 131, 116),
+    rgb(147, 177, 166)
   );
 }
 .logo {
+  filter: drop-shadow(2px 2px 20px rgb(74, 188, 188));
   padding: 2px 2px 0px 4px;
   width: 90px;
   height: 85px;
@@ -56,7 +60,7 @@
   margin: 8px;
   padding: 10px;
   color: whitesmoke;
-  font-size: 21px;
+  font-size: 15px;
   font-family: Arial, Helvetica, sans-serif;
   cursor: pointer;
 }
@@ -68,23 +72,18 @@
   flex-wrap: wrap;
 }
 .res-card {
-  width: 270px;
+  width: 260px;
   border-radius: 10px;
   transition: all 0.75s ease 0s;
   margin: 5px;
   padding: 2px;
   overflow: hidden;
-  background: linear-gradient(
-    to right,
-    rgba(96, 91, 92, 0.544) 6%,
-    rgb(120, 108, 106),
-    rgb(148, 129, 129)
-  );
+  background: rgb(114, 143, 145);
 }
 .res-card:hover {
   cursor: pointer;
   border-radius: 10px;
-  width: 271px;
+  width: 265px;
   /* border: 1px solid rgba(239, 192, 204, 0.544); */
 }
 .res-card-details {
@@ -172,4 +171,7 @@
 }
 .user-card {
   border: 1px solid black;
+}
+.menu {
+  background: rgb(147, 177, 166);
 }

@@ -1,15 +1,17 @@
 import React, { useState } from "react";
-import RestrauntCard from "./RestrauntCard";
+import RestrauntCard, { withDiscountTag } from "./RestrauntCard";
 import ShimmerUI from "./ShimmerUI";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import useRestrauntsList from "../utils/useRestrauntsList";
+// import Carousel from "./Carousel";
 
 const Body = () => {
   const [searchText, setSearchText] = useState("");
   const ONLINE_STATUS = useOnlineStatus();
   const { restaurantsList, titleOfPlace, filteredRes, setFilteredRes } =
     useRestrauntsList();
+  const RestrauntWithDiscount = withDiscountTag(RestrauntCard);
   const handleRating = () => {
     const filteredData = restaurantsList.filter(
       (item) => item.info.avgRating >= 4
@@ -30,11 +32,11 @@ const Body = () => {
   //TODO: Post call for updated swiggy API to browse more restaraunts
 
   return (
-    <div>
+    <div className="flex justify-center mx-9">
       {restaurantsList?.length === 0 ? (
         <ShimmerUI />
       ) : (
-        <div className="body">
+        <div>
           <div className="search-field">
             <input
               type="search"
@@ -47,17 +49,24 @@ const Body = () => {
               Rating 4+
             </button>
           </div>
+          {/* <div>
+            <Carousel />
+          </div> */}
           <div>
-            <h3>{titleOfPlace}</h3>
+            <h3 className="m-1 font-bold">{titleOfPlace}</h3>
           </div>
-          <div className="res-container">
+          <div className="flex flex-wrap gap-5">
             {filteredRes?.map((restaraunt) => (
               <Link
                 to={`restaurant/${restaraunt.info.id}`}
                 key={restaraunt.info.id}
                 className="link-btn"
               >
-                <RestrauntCard resData={restaraunt} />
+                {restaraunt.info?.aggregatedDiscountInfoV3 ? (
+                  <RestrauntWithDiscount resData={restaraunt} />
+                ) : (
+                  <RestrauntCard resData={restaraunt} />
+                )}
               </Link>
             ))}
           </div>

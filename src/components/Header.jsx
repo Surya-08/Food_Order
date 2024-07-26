@@ -1,53 +1,46 @@
 import React, { useState } from "react";
-import { LOGO_URL } from "../utils/common";
+// import { LOGO_URL } from "../utils/common";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import logo from "../public/Icons/FoodBurrow.png";
 
 const Header = () => {
   const [toggleButton, setToggleButton] = useState("Login");
   const ONLINE_STATUS = useOnlineStatus();
 
   return (
-    <div className="header">
-      <div className="logo-container">
-        <img src={LOGO_URL} alt="food app logo" className="logo" />
+    <div className="flex justify-between bg-cyan-950">
+      <div className="w-[90px]">
+        <img src={logo} alt="food app logo" className="" />
       </div>
-      <div className="nav-items">
-        <ul>
+      <div className="text-yellow-50 content-center">
+        <ul className="flex">
           <li>{ONLINE_STATUS ? "Online ✅" : "Offline 🔴"}</li>
-          <li>
-            <Link to="/" className="header-link">
-              Home
-            </Link>
+          <li className="px-4">
+            <Link to="/">Home</Link>
           </li>
-          <li>
-            <Link to="/cart" className="header-link">
-              Cart
-            </Link>
+          <li className="px-4">
+            <Link to="/cart">Cart</Link>
           </li>
-          <li>
-            <Link to="/about" className="header-link">
-              About Us
-            </Link>
+          <li className="px-4">
+            <Link to="/about">About Us</Link>
           </li>
-          <li>
-            <Link to="/profile" className="header-link">
-              Profile
-            </Link>
+          <li className="px-4">
+            <Link to="/profile">Profile</Link>
           </li>
-          <li>
+          <li className="px-4">
             <button
               onClick={() =>
                 toggleButton === "Login"
                   ? setToggleButton("Logout")
                   : setToggleButton("Login")
               }
-              className="login-logout"
+              className=""
             >
               {toggleButton}
             </button>
-            <button className="login-logout">
-              <Link to="/grocery" className="header-link">
+            <button className="px-4">
+              <Link to="/grocery" className="">
                 Grocery
               </Link>
             </button>
