@@ -14,7 +14,7 @@ const ItemsList = ({ data }) => {
             <div className="w-9/12 text-left">
               <img
                 src={
-                  item.card.info.itemAttribute.vegClassifier === "NONVEG"
+                  item.card.info?.itemAttribute?.vegClassifier === "NONVEG"
                     ? NON_VEG_ICON
                     : VEG_ICON
                 }

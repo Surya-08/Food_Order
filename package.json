@@ -28,6 +28,6 @@
     "react-router-dom": "^6.23.1"
   },
   "browserslist": [
-    "last 2 versions"
+    "last 7 versions"
   ]
 }
