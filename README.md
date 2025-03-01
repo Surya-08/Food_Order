@@ -1,6 +1,4 @@
-#Namaste React 🚀
-
-<!-- #Namaste Food -->
+<!-- #Food Delivery -->
 
 /\*\*
 
