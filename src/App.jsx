@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useContext, useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 
@@ -9,15 +9,29 @@ import ErrorElement from "./components/ErrorElement";
 import RestaurantMenu from "./components/RestaurantMenu";
 import Cart from "./components/Cart";
 import ShimmerUI from "./components/ShimmerUI";
+import UserContext from "./utils/userContext";
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
 
 const Grocery = lazy(() => import("./components/Grocery"));
 
 const AppLayout = () => {
+  const [userName, setUserName] = useState();
+  useEffect(() => {
+    const data = {
+      name: "new user",
+    };
+    setUserName(data.name);
+  }, []);
   return (
-    <div className="app body">
-      <Header />
-      <Outlet />
-    </div>
+    <Provider store={appStore}>
+      <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
+        <div className="app body">
+          <Header />
+          <Outlet />
+        </div>
+      </UserContext.Provider>
+    </Provider>
   );
 };
 const appRouter = createBrowserRouter([

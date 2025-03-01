@@ -32,13 +32,22 @@
   display: block;
   justify-content: center !important;
   align-content: center;
-  background: linear-gradient(
+  /* background: linear-gradient(
+    to top,
+    rgb(231, 240, 220),
+    rgb(89, 116, 69),
+    rgb(101, 129, 71),
+    rgb(114, 151, 98)
+  ); */
+  /* background: linear-gradient(to top, #f4f9f7, #523020, #c92e34, #6f1517); */
+  background-color: #c6b5b7;
+  /* background: linear-gradient(
     to top,
     rgb(18, 55, 58),
     rgb(24, 61, 61),
     rgb(92, 131, 116),
     rgb(147, 177, 166)
-  );
+  ); */
 }
 .logo {
   filter: drop-shadow(2px 2px 20px rgb(74, 188, 188));
@@ -78,7 +87,8 @@
   margin: 5px;
   padding: 2px;
   overflow: hidden;
-  background: rgb(114, 143, 145);
+  /* background: rgb(114, 143, 145); */
+  background-color: #ab9e9e;
 }
 .res-card:hover {
   cursor: pointer;

@@ -21,6 +21,7 @@ export const withDiscountTag = (RestrauntCard) => {
     );
   };
 };
+
 const RestrauntCard = (props) => {
   const { resData } = props;
   const {

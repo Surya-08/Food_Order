@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import ShimmerUI from "./ShimmerUI";
 import { useParams } from "react-router-dom";
 import useRestrauntMenu from "../utils/useRestrauntMenu";
@@ -10,6 +10,9 @@ import RestaurantCategory from "./RestaurantCategory";
 const RestaurantMenu = () => {
   const { resId } = useParams();
   const ResMenuDetails = useRestrauntMenu(resId);
+  const [showIndex, setShowIndex] = useState(null);
+  // const [addItem, setAddItem] = useState(false);
+  //TODO: Add a loading spinner or shimmer effect when the data is being fetched
   if (ResMenuDetails === null) {
     return <ShimmerUI />;
   }
@@ -55,7 +58,7 @@ const RestaurantMenu = () => {
         </div>
         <div className="text-left mx-4 text-xs flex">
           <img src={agentIcon} alt="delivery" className="w-4 mr-2" />
-          <span className="my-1">{message.split(/[<b></b>]/)}</span>
+          {/* <span className="my-1">{message.split(/[<b></b>]/)}</span> */}
         </div>
       </div>
       <div>
@@ -66,7 +69,10 @@ const RestaurantMenu = () => {
                 <RestaurantCategory
                   key={item.card.card.title}
                   categoryType={item?.card?.card}
-                  showIndex={index}
+                  showItems={index === showIndex}
+                  setShowIndex={() =>
+                    setShowIndex((prev) => (prev === index ? null : index))
+                  }
                 />
               </li>
             );

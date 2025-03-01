@@ -1,12 +1,14 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import RestrauntCard, { withDiscountTag } from "./RestrauntCard";
 import ShimmerUI from "./ShimmerUI";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import useRestrauntsList from "../utils/useRestrauntsList";
-// import Carousel from "./Carousel";
+import Carousel from "./Carousel";
+import UserContext from "../utils/userContext";
 
 const Body = () => {
+  const { loggedInUser, setUserName } = useContext(UserContext);
   const [searchText, setSearchText] = useState("");
   const ONLINE_STATUS = useOnlineStatus();
   const { restaurantsList, titleOfPlace, filteredRes, setFilteredRes } =
@@ -14,7 +16,7 @@ const Body = () => {
   const RestrauntWithDiscount = withDiscountTag(RestrauntCard);
   const handleRating = () => {
     const filteredData = restaurantsList.filter(
-      (item) => item.info.avgRating >= 4
+      (item) => item.info.avgRating >= 3.5
     );
     setFilteredRes(filteredData);
   };
@@ -22,7 +24,7 @@ const Body = () => {
   const handleSearch = (e) => {
     setSearchText(e.target.value);
     const searchResult = restaurantsList.filter((res) =>
-      res.info.name.toLowerCase().includes(searchText)
+      res.info.name.toLowerCase().includes(searchText.toLowerCase())
     );
     setFilteredRes(searchResult);
   };
@@ -37,6 +39,7 @@ const Body = () => {
         <ShimmerUI />
       ) : (
         <div>
+          {/* <Carousel /> */}
           <div className="search-field">
             <input
               type="search"
@@ -49,9 +52,16 @@ const Body = () => {
               Rating 4+
             </button>
           </div>
-          {/* <div>
-            <Carousel />
-          </div> */}
+          <div>
+            <label>UserName: </label>
+            <input
+              type="text"
+              placeholder="UserName"
+              className="rating-btn"
+              value={loggedInUser}
+              onChange={(e) => setUserName(e.target.value)}
+            />
+          </div>
           <div>
             <h3 className="m-1 font-bold">{titleOfPlace}</h3>
           </div>

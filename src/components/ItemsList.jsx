@@ -1,8 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { CDN_URL, NON_VEG_ICON, VEG_ICON } from "../utils/common";
 import ratingIcon from "../public/Icons/ratingStar.svg";
+import { addItem } from "../utils/reducer";
+import { useDispatch } from "react-redux";
 
 const ItemsList = ({ data }) => {
+  const dispatch = useDispatch();
+  const addedToCart = (item) => {
+    dispatch(addItem(item));
+  };
   return (
     <>
       {data?.itemCards.map((item) => {
@@ -55,7 +61,10 @@ const ItemsList = ({ data }) => {
                   className="w-full rounded-xl bg-blend-overlay object-cover h-36"
                 />
                 <div className="absolute inset-x-0 bottom-0">
-                  <button className="text-emerald-700 w-28 outline-none bg-slate-50 rounded-md p-1 mx-1 drop-shadow-lg">
+                  <button
+                    className="text-emerald-700 w-28 outline-none bg-slate-50 rounded-md p-1 mx-1 drop-shadow-lg"
+                    onClick={() => addedToCart(item)}
+                  >
                     Add+
                   </button>
                 </div>
