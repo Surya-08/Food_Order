@@ -16,7 +16,7 @@ const RestaurantCategory = ({ categoryType, showItems, setShowIndex }) => {
           <img src={upIcon} alt="upAccordian" />
         </div>
       </div>
-      {showItems && <ItemsList data={categoryType} />}
+      {showItems && <ItemsList data={categoryType?.itemCards} />}
     </div>
   );
 };

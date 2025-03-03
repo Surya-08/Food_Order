@@ -3,15 +3,18 @@ import { CDN_URL, NON_VEG_ICON, VEG_ICON } from "../utils/common";
 import ratingIcon from "../public/Icons/ratingStar.svg";
 import { addItem } from "../utils/reducer";
 import { useDispatch } from "react-redux";
+import AddQuantityButton from "./AddQuantityButton";
 
 const ItemsList = ({ data }) => {
+  // const [showAddBtn, setShowAddBtn] = useState(true);
   const dispatch = useDispatch();
   const addedToCart = (item) => {
     dispatch(addItem(item));
+    // setShowAddBtn(!showAddBtn);
   };
   return (
     <>
-      {data?.itemCards.map((item) => {
+      {data.map((item) => {
         return (
           <div
             className="flex justify-between p-1 border-b-2"
@@ -68,6 +71,11 @@ const ItemsList = ({ data }) => {
                     Add+
                   </button>
                 </div>
+                {/* <AddQuantityButton
+                  addedToCart={addedToCart}
+                  showAddBtn={showAddBtn}
+                  item={item}
+                /> */}
               </button>
             </div>
           </div>
